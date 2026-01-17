@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayhan | Machine Learning Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #090909;
+      --card: #111111;
+      --orange: #ff8c00;
+      --orange-dark: #e07b00;
+      --text: #f0f0f0;
+      --muted: #a0a0a0;
+      --border: #1e1e1e;
+      --glow: rgba(255, 140, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 6%;
+      background: linear-gradient(135deg, #0d0d0d 0%, #140a00 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 80%, var(--glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--orange);
+      box-shadow: 0 0 50px var(--glow);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+      letter-spacing: -2px;
+    }
+
+    .hero .tagline {
+      font-size: 1.5rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+    }
+
+    .social a {
+      color: var(--muted);
+      font-size: 2rem;
+      margin: 0 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .social a:hover {
+      color: var(--orange);
+      transform: translateY(-4px);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--orange);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: var(--orange);
+      border-radius: 3px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--orange);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--glow);
+    }
+
+    .project-content {
+      padding: 2rem 1.8rem;
+    }
+
+    .project-card h3 {
+      color: var(--orange);
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Skills */
+    .skills-container {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #181818;
+      padding: 0.7rem 1.3rem;
+      margin: 0.5rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      border: 1px solid #222;
+      transition: all 0.3s ease;
+      color: var(--text);
+    }
+
+    .skills span:hover {
+      background: var(--orange);
+      color: #000;
+      transform: scale(1.1) rotate(2deg);
+      border-color: var(--orange);
+    }
+
+    /* Footer */
+    footer {
+      padding: 5rem 8%;
+      background: #000;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--orange-dark);
+    }
+
+    @media (max-width: 768px) {
+      .hero img { width: 140px; height: 140px; }
+      .hero h1 { font-size: 3.5rem; }
+      section { padding: 70px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="Photo/ray_han.jpg" alt="Rayhan - Machine Learning Engineer">
+      <h1>Rayhan</h1>
+      <div class="tagline">Machine Learning Engineer</div>
+      <p>
+        Crafting production-grade AI systems with Computer Vision • NLP • Deep Learning • Agentic Workflows<br>
+        Turning research into real-world impact.
+      </p>
+      <div class="social">
+        <a href="https://github.com/Rayhan-55" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:lostrayhan55@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <p style="max-width: 820px; margin: 0 auto; color: var(--muted); font-size: 1.15rem; text-align: center;">
+      Passionate about building end-to-end AI solutions.<br>
+      I specialize in computer vision pipelines, modern NLP & LLM applications, real-time systems,<br>
+      and deploying reliable, scalable models to production.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skills">
+        <span>Python</span><span>Machine Learning</span><span>Deep Learning</span><span>PyTorch</span>
+        <span>TensorFlow</span><span>Computer Vision</span><span>NLP</span><span>YOLOv8</span>
+        <span>MediaPipe</span><span>OpenCV</span><span>LangChain</span><span>RAG</span>
+        <span>FastAPI</span><span>Flask</span><span>Docker</span><span>Git</span>
+        <span>HTML/CSS</span><span>JavaScript (Basic)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2 class="section-title">Projects</h2>
+    <div class="card-grid">
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>MediMind AI</h3>
+          <p>
+            Medical AI suite: RAG-powered chatbot + CNN-based skin lesion classification + real-time image diagnostics.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Virtual Painter</h3>
+          <p>
+            Gesture-controlled digital canvas using MediaPipe hand tracking + OpenCV.<br>
+            Draw, change colors, erase — all with hand movements in real time.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Real-Time Object Detection & Tracking</h3>
+          <p>
+            YOLOv8 + SORT/ByteTrack pipeline for detection, multi-object tracking, counting & masking.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Resume Screening System</h3>
+          <p>
+            NLP-powered resume parser, matcher & ranker with TF-IDF + embeddings + Flask backend.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Cancer Detection (Structured Data)</h3>
+          <p>
+            ML classification pipeline for cancer risk prediction using medical records, feature engineering & ensemble models.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <h2 class="section-title">Focus Areas</h2>
+    <div class="card-grid">
+      <div class="project-card">
+        <div class="project-content">
+          <h3>AI Research & Experimentation</h3>
+          <p>
+            Fine-tuning vision & language models, exploring agentic systems, prompt engineering, evaluation benchmarks.
+          </p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-content">
+          <h3>MLOps & Deployment</h3>
+          <p>
+            Containerized APIs (FastAPI/Flask), Docker workflows, model monitoring, performance tuning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <h2 class="section-title">Let's Connect</h2>
+    <p style="text-align: center; font-size: 1.2rem; color: var(--muted);">
+      📧 <a href="mailto:lostrayhan55@gmail.com">lostrayhan55@gmail.com</a><br><br>
+      💻 <a href="https://github.com/Rayhan-55" target="_blank">github.com/Rayhan-55</a><br>
+      🔗 <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank">linkedin.com/in/ray-han-b6bb05253</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2026 Rayhan<br>
+    <small>Building intelligent systems with passion and precision.</small>
+  </footer>
+
+  <script>
+    // Simple scroll reveal
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+
+</body>
+</html>
