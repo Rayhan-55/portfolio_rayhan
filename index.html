@@ -17,207 +17,47 @@
       --glow: rgba(255, 140, 0, 0.15);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.7; }
 
     /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 6%;
-      background: linear-gradient(135deg, #0d0d0d 0%, #140a00 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 80%, var(--glow) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 960px;
-    }
-
-    .hero img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--orange);
-      box-shadow: 0 0 50px var(--glow);
-      margin-bottom: 1.8rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      color: var(--orange);
-      margin-bottom: 0.5rem;
-      letter-spacing: -2px;
-    }
-
-    .hero .tagline {
-      font-size: 1.5rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 720px;
-      margin: 0 auto 2.5rem;
-      color: var(--muted);
-    }
-
-    .social a {
-      color: var(--muted);
-      font-size: 2rem;
-      margin: 0 1.2rem;
-      transition: all 0.3s;
-    }
-
-    .social a:hover {
-      color: var(--orange);
-      transform: translateY(-4px);
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 6%; background: linear-gradient(135deg, #0d0d0d 0%, #140a00 100%); position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, var(--glow) 0%, transparent 60%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; }
+    .hero img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--orange); box-shadow: 0 0 50px var(--glow); margin-bottom: 1.8rem; }
+    .hero h1 { font-size: clamp(3rem, 8vw, 5rem); color: var(--orange); margin-bottom: 0.5rem; letter-spacing: -2px; }
+    .hero .tagline { font-size: 1.5rem; color: var(--muted); margin-bottom: 2rem; }
+    .hero p { font-size: 1.2rem; max-width: 720px; margin: 0 auto 2.5rem; color: var(--muted); }
+    .social a { color: var(--muted); font-size: 2rem; margin: 0 1.2rem; transition: all 0.3s; }
+    .social a:hover { color: var(--orange); transform: translateY(-4px); }
 
     /* Sections */
-    section {
-      padding: 100px 8%;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
+    section { padding: 100px 8%; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    section.visible { opacity: 1; transform: translateY(0); }
+    .section-title { font-size: 2.8rem; text-align: center; margin-bottom: 4rem; color: var(--orange); position: relative; }
+    .section-title::after { content: ""; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); width: 100px; height: 5px; background: var(--orange); border-radius: 3px; }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section-title {
-      font-size: 2.8rem;
-      text-align: center;
-      margin-bottom: 4rem;
-      color: var(--orange);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: "";
-      position: absolute;
-      bottom: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 5px;
-      background: var(--orange);
-      border-radius: 3px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: var(--card);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-      backdrop-filter: blur(4px);
-    }
-
-    .project-card:hover {
-      transform: translateY(-12px);
-      border-color: var(--orange);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--glow);
-    }
-
-    .project-content {
-      padding: 2rem 1.8rem;
-    }
-
-    .project-card h3 {
-      color: var(--orange);
-      font-size: 1.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+    .project-card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: all 0.4s ease; backdrop-filter: blur(4px); }
+    .project-card:hover { transform: translateY(-12px); border-color: var(--orange); box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--glow); }
+    .project-content { padding: 2rem 1.8rem; }
+    .project-card h3 { color: var(--orange); font-size: 1.7rem; margin-bottom: 1rem; }
+    .project-card p { color: var(--muted); font-size: 1.05rem; }
+    .project-btn { display: inline-block; margin-top: 1rem; color: var(--muted); transition: all 0.3s; }
+    .project-btn:hover { color: var(--orange); }
 
     /* Skills */
-    .skills-container {
-      text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #181818;
-      padding: 0.7rem 1.3rem;
-      margin: 0.5rem;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      border: 1px solid #222;
-      transition: all 0.3s ease;
-      color: var(--text);
-    }
-
-    .skills span:hover {
-      background: var(--orange);
-      color: #000;
-      transform: scale(1.1) rotate(2deg);
-      border-color: var(--orange);
-    }
+    .skills-container { text-align: center; max-width: 1000px; margin: 0 auto; }
+    .skills span { display: inline-block; background: #181818; padding: 0.7rem 1.3rem; margin: 0.5rem; border-radius: 50px; font-size: 0.95rem; border: 1px solid #222; transition: all 0.3s ease; color: var(--text); }
+    .skills span:hover { background: var(--orange); color: #000; transform: scale(1.1) rotate(2deg); border-color: var(--orange); }
 
     /* Footer */
-    footer {
-      padding: 5rem 8%;
-      background: #000;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
+    footer { padding: 5rem 8%; background: #000; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+    a { color: var(--orange); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--orange-dark); }
 
-    a {
-      color: var(--orange);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: var(--orange-dark);
-    }
-
-    @media (max-width: 768px) {
-      .hero img { width: 140px; height: 140px; }
-      .hero h1 { font-size: 3.5rem; }
-      section { padding: 70px 5%; }
-    }
+    @media (max-width: 768px) { .hero img { width: 140px; height: 140px; } .hero h1 { font-size: 3.5rem; } section { padding: 70px 5%; } }
   </style>
 </head>
 <body>
@@ -228,10 +68,8 @@
       <img src="Photo/ray_han.jpg" alt="Rayhan - Machine Learning Engineer">
       <h1>Rayhan</h1>
       <div class="tagline">Machine Learning Engineer</div>
-      <p>
-        Crafting production-grade AI systems with Computer Vision • NLP • Deep Learning • Agentic Workflows<br>
-        Turning research into real-world impact.
-      </p>
+      <p>Crafting production-grade AI systems with Computer Vision • NLP • Deep Learning • Agentic Workflows<br>
+        Turning research into real-world impact.</p>
       <div class="social">
         <a href="https://github.com/Rayhan-55" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -269,150 +107,95 @@
     <h2 class="section-title">Projects</h2>
     <div class="card-grid">
 
+      <!-- MediMind AI -->
       <div class="project-card">
         <div class="project-content">
           <h3>MediMind AI</h3>
-          <p>
-            Medical AI suite: RAG-powered chatbot + CNN-based skin lesion classification + real-time image diagnostics.
-          </p>
+          <p>Medical AI suite: RAG-powered chatbot + CNN-based skin lesion classification + real-time image diagnostics.</p>
+          <a href="https://github.com/Rayhan-55/Medical_chat_bot-Medi_Mind-" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
+      <!-- Virtual Painter -->
       <div class="project-card">
         <div class="project-content">
           <h3>Virtual Painter</h3>
-          <p>
-            Gesture-controlled digital canvas using MediaPipe hand tracking + OpenCV.<br>
-            Draw, change colors, erase — all with hand movements in real time.
-          </p>
+          <p>Gesture-controlled digital canvas using MediaPipe hand tracking + OpenCV. Draw, change colors, erase — all with hand movements in real time.</p>
+          <a href="https://github.com/Rayhan-55/YOUR_REPO" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
+      <!-- Real-Time Object Detection & Tracking -->
       <div class="project-card">
         <div class="project-content">
           <h3>Real-Time Object Detection & Tracking</h3>
-          <p>
-            YOLOv8 + SORT/ByteTrack pipeline for detection, multi-object tracking, counting & masking.
-          </p>
+          <p>YOLOv8 + SORT/ByteTrack pipeline for detection, multi-object tracking, counting & masking.</p>
+          <a href="https://github.com/Rayhan-55/YOUR_REPO" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
+      <!-- Resume Screening System -->
       <div class="project-card">
         <div class="project-content">
           <h3>Resume Screening System</h3>
-          <p>
-            NLP-powered resume parser, matcher & ranker with TF-IDF + embeddings + Flask backend.
-          </p>
+          <p>NLP-powered resume parser, matcher & ranker with TF-IDF + embeddings + Flask backend.</p>
+          <a href="https://github.com/Rayhan-55/Resume_Screening" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
+      <!-- Recruiter Profile Chatbot -->
       <div class="project-card">
         <div class="project-content">
-          <h3>Cancer Detection (Structured Data)</h3>
-          <p>
-            ML classification pipeline for cancer risk prediction using medical records, feature engineering & ensemble models.
-          </p>
+          <h3>Recruiter Profile Chatbot</h3>
+          <p>This chatbot can chat based on your profile.</p>
+          <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_5.py" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
+      <!-- Web Scrapping -->
       <div class="project-card">
         <div class="project-content">
-          <h3>Restaurant Management System (OOP)</h3>
-          <p>
-            Python-based Restaurant Management System using OOP concepts:<br>
-            • Customer, Admin & Employee classes<br>
-            • Menu & Food Item management<br>
-            • Cart, Orders & Billing system<br>
-            • Interactive console interface
-          </p>
-          
+          <h3>Web Scrapping</h3>
+          <p>Give a link and it will scrap the website for you.</p>
+          <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_1.ipynb.ipynb" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
 
-      <section>
-  <h2 class="section-title">Projects</h2>
-  <div class="card-grid">
-
-    <!-- Recruiter Profile Chatbot -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Recruiter Profile Chatbot</h3>
-        <p>This chatbot can chat based on your profile.</p>
-        <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_5.py" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
+      <!-- Telco Churn Prediction -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Telco Churn Prediction</h3>
+          <p>Says whether a customer will stay in the current profile or not.</p>
+          <a href="https://github.com/Rayhan-55/Telco_Churn_Prediction" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Web Scrapping -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Web Scrapping</h3>
-        <p>Give a link and it will scrap the website for you.</p>
-        <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_1.ipynb.ipynb" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
+      <!-- Travel Agent (n8n) -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Travel Agent (n8n)</h3>
+          <p>Automation workflow for travel bookings & management using n8n.</p>
+          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Resume Screening -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Resume Screening</h3>
-        <p>Put a resume and it will tell you the category of that individual resume.</p>
-        <a href="https://github.com/Rayhan-55/Resume_Screening" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
+      <!-- RAG Agent (Pinecone + n8n) -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>RAG Agent (Pinecone Vector DB + n8n)</h3>
+          <p>Retrieve & generate responses from vector database using RAG workflow.</p>
+          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Telco Churn Prediction -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Telco Churn Prediction</h3>
-        <p>Says whether a customer will stay in the current profile or not.</p>
-        <a href="https://github.com/Rayhan-55/Telco_Churn_Prediction" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
+      <!-- Call Agent (n8n) -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Call Agent (n8n)</h3>
+          <p>Automation system for handling calls and routing via n8n workflows.</p>
+          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
       </div>
-    </div>
-
-    <!-- Travel Agent (n8n) -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Travel Agent (n8n)</h3>
-        <p>Automation workflow for travel bookings & management using n8n.</p>
-        <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-    </div>
-
-    <!-- RAG Agent (Pinecone + n8n) -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>RAG Agent (Pinecone Vector DB + n8n)</h3>
-        <p>Retrieve & generate responses from vector database using RAG workflow.</p>
-        <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-    </div>
-
-    <!-- Call Agent (n8n) -->
-    <div class="project-card">
-      <div class="project-content">
-        <h3>Call Agent (n8n)</h3>
-        <p>Automation system for handling calls and routing via n8n workflows.</p>
-        <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 
     </div>
   </section>
@@ -424,17 +207,13 @@
       <div class="project-card">
         <div class="project-content">
           <h3>AI Research & Experimentation</h3>
-          <p>
-            Fine-tuning vision & language models, exploring agentic systems, prompt engineering, evaluation benchmarks.
-          </p>
+          <p>Fine-tuning vision & language models, exploring agentic systems, prompt engineering, evaluation benchmarks.</p>
         </div>
       </div>
       <div class="project-card">
         <div class="project-content">
           <h3>MLOps & Deployment</h3>
-          <p>
-            Containerized APIs (FastAPI/Flask), Docker workflows, model monitoring, performance tuning.
-          </p>
+          <p>Containerized APIs (FastAPI/Flask), Docker workflows, model monitoring, performance tuning.</p>
         </div>
       </div>
     </div>
@@ -460,12 +239,9 @@
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     sections.forEach(sec => observer.observe(sec));
   </script>
 
