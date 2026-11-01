@@ -1,599 +1,367 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rayhan | Machine Learning Engineer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg: #090909;
-      --card: #111111;
-      --orange: #ff8c00;
-      --orange-dark: #e07b00;
-      --text: #f0f0f0;
-      --muted: #a0a0a0;
-      --border: #1e1e1e;
-      --glow: rgba(255, 140, 0, 0.15);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M. M. Asfy Or Rayhan — AI / ML Researcher</title>
+<meta name="description" content="M. M. Asfy Or Rayhan — AI Engineer and researcher in medical imaging, computer vision, and public-health NLP." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  :root{
+    --indigo:#5b5bf0; --violet:#8b5cf6; --sky:#0ea5e9; --teal:#14b8a6;
+    --pink:#ec4899; --coral:#f43f5e; --amber:#f59e0b; --green:#10b981; --blue:#3b82f6;
+    --ink:#1b2330; --muted:#5c6673; --bg:#ffffff; --panel:#f7f9fc; --line:#e7ecf3;
+    --maxw:970px;
+    --grad:linear-gradient(120deg,#6366f1 0%,#8b5cf6 42%,#0ea5e9 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;}
+  a{color:var(--indigo);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  h1,h2,h3{font-family:'Sora',system-ui,sans-serif;line-height:1.25;}
 
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; 
-    }
-    
-    body { 
-      background: var(--bg); 
-      color: var(--text); 
-      line-height: 1.7; 
-      overflow-x: hidden;
-    }
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:.7rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+  .nav-name{font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-links{display:flex;gap:1.25rem;flex-wrap:wrap;}
+  .nav-links a{color:var(--muted);font-size:.9rem;font-weight:600;}
+  .nav-links a:hover{color:var(--indigo);text-decoration:none;}
 
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem;}
 
-    /* Hero */
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center; 
-      padding: 2rem 6%; 
-      background: linear-gradient(135deg, #0d0d0d 0%, #140a00 100%); 
-      position: relative; 
-      overflow: hidden; 
-    }
-    
-    .hero::before { 
-      content: ""; 
-      position: absolute; 
-      inset: 0; 
-      background: radial-gradient(circle at 20% 80%, var(--glow) 0%, transparent 60%); 
-      pointer-events: none; 
-    }
-    
-    .hero-content { 
-      position: relative; 
-      z-index: 2; 
-      max-width: 960px; 
-      width: 100%;
-    }
-    
-    .hero img { 
-      width: 180px; 
-      height: 180px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      border: 5px solid var(--orange); 
-      box-shadow: 0 0 50px var(--glow); 
-      margin-bottom: 1.8rem;
-      animation: float 3s ease-in-out infinite;
-    }
+  /* Hero */
+  header.hero{background:var(--grad);color:#fff;padding:3.2rem 0 3rem;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.12);}
+  header.hero::before{content:"";position:absolute;left:-60px;bottom:-90px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .hero-grid{display:grid;grid-template-columns:172px 1fr;gap:2rem;align-items:center;position:relative;z-index:2;}
+  .photo{width:172px;height:172px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.85);
+    box-shadow:0 10px 35px rgba(0,0,0,.25);background:#fff;}
+  .hero h1{font-size:2.15rem;font-weight:800;letter-spacing:-.4px;color:#fff;}
+  .hero .role{font-weight:600;font-size:1.1rem;margin-top:.25rem;color:#fef9ff;}
+  .hero .affil{margin-top:.35rem;font-size:.97rem;color:rgba(255,255,255,.9);}
+  .hero .meta{margin-top:.55rem;font-size:.93rem;color:rgba(255,255,255,.92);}
+  .hero .meta i{width:16px;}
+  .links{display:flex;gap:.55rem;margin-top:1rem;flex-wrap:wrap;}
+  .links a{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;font-weight:600;color:#fff;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:.4rem .8rem;border-radius:8px;}
+  .links a:hover{background:#fff;color:var(--indigo);text-decoration:none;}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .hero h1 { 
-      font-size: clamp(2.5rem, 8vw, 5rem); 
-      color: var(--orange); 
-      margin-bottom: 0.5rem; 
-      letter-spacing: -2px; 
-      font-weight: 700;
-    }
-    
-    .hero .tagline { 
-      font-size: clamp(1.2rem, 3vw, 1.5rem); 
-      color: var(--muted); 
-      margin-bottom: 2rem; 
-      font-weight: 500;
-    }
-    
-    .hero p { 
-      font-size: clamp(1rem, 2vw, 1.2rem); 
-      max-width: 720px; 
-      margin: 0 auto 2.5rem; 
-      color: var(--muted); 
-    }
-    
-    .social { 
-      display: flex; 
-      justify-content: center; 
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .social a { 
-      color: var(--muted); 
-      font-size: 2rem; 
-      transition: all 0.3s ease; 
-      display: inline-block;
-    }
-    
-    .social a:hover { 
-      color: var(--orange); 
-      transform: translateY(-4px) scale(1.1); 
-    }
+  section{padding:2.6rem 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2.sec{font-size:1.5rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem;color:var(--ink);}
+  h2.sec .dot{width:12px;height:22px;border-radius:5px;display:inline-block;background:var(--grad);}
+  #about h2 .dot{background:var(--indigo);}
+  #research h2 .dot{background:var(--teal);}
+  #publications h2 .dot{background:var(--violet);}
+  #projects h2 .dot{background:var(--sky);}
+  #experience h2 .dot{background:var(--amber);}
+  #education h2 .dot{background:var(--green);}
+  #skills h2 .dot{background:var(--pink);}
+  #certifications h2 .dot{background:var(--coral);}
+  #contact h2 .dot{background:var(--blue);}
+  p.lead{color:var(--ink);}
+  .muted{color:var(--muted);}
 
-    /* Sections */
-    section { 
-      padding: 100px 8%; 
-      opacity: 0; 
-      transform: translateY(30px); 
-      transition: all 0.8s ease-out; 
-    }
-    
-    section.visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    
-    .section-title { 
-      font-size: clamp(2rem, 5vw, 2.8rem); 
-      text-align: center; 
-      margin-bottom: 4rem; 
-      color: var(--orange); 
-      position: relative; 
-      padding-bottom: 1rem;
-    }
-    
-    .section-title::after { 
-      content: ""; 
-      position: absolute; 
-      bottom: -14px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 100px; 
-      height: 5px; 
-      background: var(--orange); 
-      border-radius: 3px; 
-    }
+  .tags{display:flex;flex-wrap:wrap;gap:.55rem;}
+  .tags span{padding:.4rem .9rem;border-radius:22px;font-size:.86rem;font-weight:600;border:1px solid transparent;}
+  .tags span:nth-child(9n+1){background:#eef0ff;color:#4f46e5;}
+  .tags span:nth-child(9n+2){background:#e6fbf6;color:#0d9488;}
+  .tags span:nth-child(9n+3){background:#fdeef6;color:#db2777;}
+  .tags span:nth-child(9n+4){background:#fff4e2;color:#d97706;}
+  .tags span:nth-child(9n+5){background:#e8fbef;color:#059669;}
+  .tags span:nth-child(9n+6){background:#e8f5ff;color:#0284c7;}
+  .tags span:nth-child(9n+7){background:#f3edff;color:#7c3aed;}
+  .tags span:nth-child(9n+8){background:#ffeef0;color:#e11d48;}
+  .tags span:nth-child(9n+9){background:#eafaff;color:#0891b2;}
 
-    /* Cards */
-    .card-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); 
-      gap: 2rem; 
-      width: 100%;
-    }
-    
-    .project-card { 
-      background: var(--card); 
-      border-radius: 20px; 
-      overflow: hidden; 
-      border: 1px solid var(--border); 
-      transition: all 0.4s ease; 
-      backdrop-filter: blur(4px); 
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .project-card:hover { 
-      transform: translateY(-12px); 
-      border-color: var(--orange); 
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--glow); 
-    }
-    
-    .project-content { 
-      padding: 2rem 1.8rem; 
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .project-card h3 { 
-      color: var(--orange); 
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem); 
-      margin-bottom: 1rem; 
-      line-height: 1.3;
-    }
-    
-    .project-card p { 
-      color: var(--muted); 
-      font-size: clamp(0.95rem, 1.5vw, 1.05rem); 
-      flex: 1;
-      margin-bottom: 1rem;
-    }
-    
-    .project-btn { 
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--muted); 
-      transition: all 0.3s; 
-      font-size: 0.95rem;
-      margin-top: auto;
-    }
-    
-    .project-btn:hover { 
-      color: var(--orange); 
-      gap: 0.7rem;
-    }
+  .pub-group{font-weight:700;color:#fff;background:var(--violet);display:inline-block;
+    padding:.2rem .7rem;border-radius:7px;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;margin:1.2rem 0 .7rem;}
+  .pub-group.prep{background:var(--sky);}
+  ol.pubs{list-style:none;counter-reset:p;}
+  ol.pubs li{position:relative;padding:.7rem .9rem .7rem 2.2rem;margin-bottom:.6rem;counter-increment:p;font-size:.95rem;
+    background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--violet);border-radius:8px;}
+  ol.pubs li::before{content:counter(p);position:absolute;left:.75rem;top:.7rem;color:#fff;background:var(--violet);
+    width:1.1rem;height:1.1rem;border-radius:50%;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .me{color:var(--indigo);font-weight:700;}
+  .venue{font-style:italic;}
+  .status{display:inline-block;font-size:.72rem;font-weight:700;padding:.1rem .55rem;border-radius:11px;margin-left:.2rem;white-space:nowrap;color:#fff;}
+  .status.review{background:var(--amber);}
+  .status.revision{background:var(--coral);}
+  .status.submitted{background:var(--green);}
+  .status.editor{background:var(--blue);}
+  .status.prep{background:var(--violet);}
 
-    /* Skills */
-    .skills-container { 
-      text-align: center; 
-      max-width: 1000px; 
-      margin: 0 auto; 
-    }
-    
-    .skills { 
-      display: flex; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-      gap: 0.7rem;
-    }
-    
-    .skills span { 
-      background: #181818; 
-      padding: 0.7rem 1.3rem; 
-      border-radius: 50px; 
-      font-size: clamp(0.85rem, 1.5vw, 0.95rem); 
-      border: 1px solid #222; 
-      transition: all 0.3s ease; 
-      color: var(--text); 
-      white-space: nowrap;
-    }
-    
-    .skills span:hover { 
-      background: var(--orange); 
-      color: #000; 
-      transform: scale(1.1) rotate(2deg); 
-      border-color: var(--orange); 
-    }
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(285px,100%),1fr));gap:1.15rem;}
+  .card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--indigo);border-radius:12px;padding:1.2rem 1.25rem;
+    transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(40,50,90,.13);}
+  .card:nth-child(7n+1){border-top-color:var(--indigo);} .card:nth-child(7n+1) h3{color:var(--indigo);}
+  .card:nth-child(7n+2){border-top-color:var(--teal);}   .card:nth-child(7n+2) h3{color:var(--teal);}
+  .card:nth-child(7n+3){border-top-color:var(--sky);}    .card:nth-child(7n+3) h3{color:var(--sky);}
+  .card:nth-child(7n+4){border-top-color:var(--pink);}   .card:nth-child(7n+4) h3{color:var(--pink);}
+  .card:nth-child(7n+5){border-top-color:var(--amber);}  .card:nth-child(7n+5) h3{color:#d97706;}
+  .card:nth-child(7n+6){border-top-color:var(--green);}  .card:nth-child(7n+6) h3{color:var(--green);}
+  .card:nth-child(7n+7){border-top-color:var(--violet);} .card:nth-child(7n+7) h3{color:var(--violet);}
+  .card h3{font-size:1.1rem;margin-bottom:.3rem;}
+  .card .stack{font-size:.8rem;color:var(--muted);font-weight:600;margin-bottom:.5rem;}
+  .card p{font-size:.9rem;color:var(--ink);flex:1;}
+  .card a.gh{margin-top:.7rem;font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;}
 
-    /* About Section */
-    .about-text {
-      max-width: 820px; 
-      margin: 0 auto; 
-      color: var(--muted); 
-      font-size: clamp(1rem, 2vw, 1.15rem); 
-      text-align: center;
-      line-height: 1.8;
-    }
+  .item{margin-bottom:1rem;padding-left:.9rem;border-left:3px solid var(--amber);}
+  .item:nth-child(even){border-left-color:var(--green);}
+  .item .t{font-weight:600;}
+  .item .d{color:var(--muted);font-size:.85rem;font-style:italic;}
+  ul.bul{margin:.3rem 0 0 1.1rem;}
+  ul.bul li{margin-bottom:.2rem;font-size:.93rem;}
 
-    /* Contact Section */
-    .contact-info {
-      text-align: center; 
-      font-size: clamp(1rem, 2vw, 1.2rem); 
-      color: var(--muted);
-      line-height: 2;
-    }
+  table.edu{width:100%;border-collapse:collapse;font-size:.92rem;overflow:hidden;border-radius:10px;}
+  table.edu th{text-align:left;background:var(--grad);color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.6rem .8rem;}
+  table.edu td{padding:.6rem .8rem;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.edu tr:nth-child(even) td{background:var(--panel);}
 
-    .contact-info a {
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
+  .skillrow{display:grid;grid-template-columns:150px 1fr;gap:.4rem 1rem;padding:.5rem .7rem;margin-bottom:.4rem;border-radius:8px;font-size:.92rem;}
+  .skillrow:nth-child(6n+1){background:#eef0ff;} .skillrow:nth-child(6n+1) .k{color:#4f46e5;}
+  .skillrow:nth-child(6n+2){background:#e6fbf6;} .skillrow:nth-child(6n+2) .k{color:#0d9488;}
+  .skillrow:nth-child(6n+3){background:#fdeef6;} .skillrow:nth-child(6n+3) .k{color:#db2777;}
+  .skillrow:nth-child(6n+4){background:#e8f5ff;} .skillrow:nth-child(6n+4) .k{color:#0284c7;}
+  .skillrow:nth-child(6n+5){background:#fff4e2;} .skillrow:nth-child(6n+5) .k{color:#d97706;}
+  .skillrow:nth-child(6n+6){background:#e8fbef;} .skillrow:nth-child(6n+6) .k{color:#059669;}
+  .skillrow .k{font-weight:700;}
 
-    .contact-info a:hover {
-      transform: translateX(5px);
-    }
+  ul.certs{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:.5rem;}
+  ul.certs li{padding:.6rem .7rem .6rem 2rem;position:relative;font-size:.9rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;}
+  ul.certs li::before{content:"\f559";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--coral);position:absolute;left:.7rem;top:.65rem;font-size:.85rem;}
 
-    /* Footer */
-    footer { 
-      padding: 5rem 8%; 
-      background: #000; 
-      text-align: center; 
-      color: var(--muted); 
-      border-top: 1px solid var(--border); 
-    }
-    
-    footer small {
-      display: block;
-      margin-top: 0.5rem;
-      opacity: 0.7;
-    }
+  footer{background:var(--grad);color:#fff;text-align:center;padding:2.2rem 1.4rem;font-size:.9rem;}
+  footer a{color:#fff;text-decoration:underline;}
 
-    a { 
-      color: var(--orange); 
-      text-decoration: none; 
-      transition: color 0.3s; 
-    }
-    
-    a:hover { 
-      color: var(--orange-dark); 
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) { 
-      .hero { 
-        padding: 2rem 5%; 
-      }
-      
-      .hero img { 
-        width: 140px; 
-        height: 140px; 
-      }
-      
-      section { 
-        padding: 70px 5%; 
-      }
-
-      .card-grid {
-        gap: 1.5rem;
-      }
-
-      .social {
-        gap: 1rem;
-      }
-
-      .social a {
-        font-size: 1.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        padding: 1.5rem 4%;
-      }
-
-      .section-title {
-        margin-bottom: 2.5rem;
-      }
-
-      .project-content {
-        padding: 1.5rem 1.3rem;
-      }
-
-      .skills span {
-        padding: 0.6rem 1rem;
-      }
-    }
-  </style>
+  @media(max-width:640px){
+    .hero-grid{grid-template-columns:1fr;text-align:center;justify-items:center;gap:1.2rem;}
+    .links,.hero .meta{justify-content:center;}
+    .hero .meta{display:flex;flex-direction:column;align-items:center;gap:.1rem;}
+    .skillrow{grid-template-columns:1fr;gap:.1rem;}
+    .nav-name{display:none;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="Photo/ray_han.jpg" alt="Rayhan - Machine Learning Engineer">
-      <h1>Rayhan</h1>
-      <div class="tagline">Machine Learning Engineer</div>
-      <p>Crafting production-grade AI systems with Computer Vision • NLP • Deep Learning • Agentic Workflows<br>
-        Turning research into real-world impact.</p>
-      <div class="social">
-        <a href="https://github.com/Rayhan-55" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:lostrayhan55@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">M. M. Asfy Or Rayhan</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <!-- Replace with your own photo file; keep this path or change it -->
+      <img class="photo" src="Photo/ray_han.jpg" alt="M. M. Asfy Or Rayhan" />
+      <div>
+        <h1>M. M. Asfy Or Rayhan</h1>
+        <div class="role">AI Engineer &nbsp;&middot;&nbsp; Medical Imaging, Computer Vision &amp; NLP</div>
+        <div class="affil">Final-year B.Sc. in Computer Science &amp; Engineering, Northern University of Business and Technology, Khulna (NUBTK)</div>
+        <div class="meta">
+          <i class="fas fa-envelope"></i> asfyrayhan1106@gmail.com &nbsp;&nbsp;
+          <i class="fas fa-location-dot"></i> Khulna, Bangladesh
+        </div>
+        <div class="links">
+          <a href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="mailto:asfyrayhan1106@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <!-- Add once you have them:
+          <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          <a href="YOUR_RESEARCHGATE_URL" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a>
+          <a href="YOUR_ORCID_URL" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+          -->
+        </div>
       </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <h2 class="sec"><span class="dot"></span>About</h2>
+    <p class="lead">I am a final-year Computer Science &amp; Engineering student and AI practitioner with over a year of hands-on project experience in machine learning, LLM applications, and production retrieval-augmented generation (RAG) pipelines. My work spans medical-image classification, computer-vision detection and tracking, and public-health and disaster NLP, with an emphasis on explainable, well-calibrated, and reproducible models. I am co-author on several peer-reviewed manuscripts (four as first author) currently under review or in preparation, and I enjoy owning the full path from data cleaning and feature engineering through model selection to a deployed FastAPI service.</p>
+  </section>
+
+  <section id="research">
+    <h2 class="sec"><span class="dot"></span>Research Interests</h2>
+    <div class="tags">
+      <span>Medical Image Analysis</span>
+      <span>Explainable AI (XAI)</span>
+      <span>Computer Vision</span>
+      <span>Knowledge Distillation</span>
+      <span>Public-Health &amp; Disaster NLP</span>
+      <span>Retrieval-Augmented Generation</span>
+      <span>Time-Series Forecasting</span>
+      <span>Low-Resource (Bangla) NLP</span>
+      <span>Model Calibration &amp; Uncertainty</span>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section>
-    <h2 class="section-title">About Me</h2>
-    <p class="about-text">
-      Passionate about building end-to-end AI solutions.<br>
-      I specialize in computer vision pipelines, modern NLP & LLM applications, real-time systems,<br>
-      and deploying reliable, scalable models to production.
-    </p>
+  <section id="publications">
+    <h2 class="sec"><span class="dot"></span>Publications &amp; Research</h2>
+    <p class="muted">Six manuscripts across medical imaging, public-health AI, and disaster / mental-health NLP — four as first author. Bold names indicate my contribution.</p>
+
+    <div class="pub-group">Under review / in revision</div>
+    <ol class="pubs">
+      <li><span class="me">M. M. Asfy Or Rayhan</span> (first author), M. M. H. Moon, M. S. Hosain, M. Assaduzzaman, A. Rahman, T. H. Liew, S. Ahmmed, Ohidujjaman. &ldquo;Confidence-Guided Multi-Level Knowledge Distillation with Feature and Attention Alignment for Brain Tumor MRI Classification.&rdquo; <span class="venue">Health Information Science and Systems</span> (Springer), 2026. <span class="status review">Under review</span></li>
+      <li><span class="me">M. M. Asfy Or Rayhan</span> (first author), Md. Murad Hossain, Yasir Arfat, Md. Saiful Islam, Alisha Rahman. &ldquo;Explainable Multimodal Artificial Intelligence for Measles Outbreak Intelligence: Integrating Epidemiological Forecasting and Sentiment Analysis of News Text.&rdquo; <span class="venue">Discover Public Health</span> (Springer Nature), 2026. <span class="status revision">Under revision</span></li>
+      <li><span class="me">M. M. Asfy Or Rayhan</span> (first author) et al. &ldquo;EmoDiverge-XAI: An Explainable and Statistically Robust Framework for Quantifying Media&ndash;Public Emotional Divergence during the 2026 Nepal Floods.&rdquo; <span class="venue">Discover Computing</span> (Springer Nature), 2026. <span class="status submitted">Submitted</span></li>
+      <li>&ldquo;Measuring Sentiment and Emotion in Disaster Discourse on Nepal: A Multi-Hazard Lexicon Audit.&rdquo; <span class="venue">International Journal of Data Science and Analytics</span> (Springer Nature), 2026. <span class="muted">(Fourth author.)</span> <span class="status editor">With editor</span></li>
+      <li>&ldquo;A Source-Aware Explainable NLP Framework for Auditing Online Mental Health and Well-Being Information.&rdquo; 2026. <span class="muted">(Fourth author.)</span> <span class="status review">Under review</span></li>
+    </ol>
+
+    <div class="pub-group prep">In preparation</div>
+    <ol class="pubs">
+      <li><span class="me">M. M. Asfy Or Rayhan</span> (first author) et al. &ldquo;Adaptive Reliability-Gated Global&ndash;Local Model for Tea Leaf Disease Classification&rdquo; — 7-class TeaLeafDiseaseBD, 91.1% accuracy with explainability and calibration. <span class="status prep">In preparation</span></li>
+    </ol>
   </section>
 
-  <!-- SKILLS -->
-  <section>
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-container">
-      <div class="skills">
-        <span>Python</span>
-        <span>Machine Learning</span>
-        <span>Deep Learning</span>
-        <span>PyTorch</span>
-        <span>TensorFlow</span>
-        <span>Computer Vision</span>
-        <span>NLP</span>
-        <span>YOLOv8</span>
-        <span>MediaPipe</span>
-        <span>OpenCV</span>
-        <span>LangChain</span>
-        <span>RAG</span>
-        <span>n8n Automation</span>
-        <span>Workflow Automation</span>
-        <span>AI Agents</span>
-        <span>Voice AI (Retell AI)</span>
-        <span>Voice AI (Vapi)</span>
-        <span>ElevenLabs</span>
-        <span>Pinecone VectorDB</span>
-        <span>Agentic Workflows</span>
-        <span>DeepSeek</span>
-        <span>GPT-4o</span>
-        <span>Groq</span>
-        <span>WhatsApp Automation</span>
-        <span>Email Automation</span>
-        <span>Calendar Integration</span>
-        <span>FastAPI</span>
-        <span>Flask</span>
-        <span>Docker</span>
-        <span>Git</span>
-        <span>HTML/CSS</span>
-        <span>JavaScript</span>
-      </div>
-    </div>
-  </section>
+  <section id="projects">
+    <h2 class="sec"><span class="dot"></span>Selected Projects</h2>
+    <div class="grid">
 
-  <!-- PROJECTS -->
-  <section>
-    <h2 class="section-title">Projects</h2>
-    <div class="card-grid">
-
-      <!-- MediMind AI -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>MediMind AI</h3>
-          <p>Medical AI suite: RAG-powered chatbot + CNN-based skin lesion classification + real-time image diagnostics.</p>
-          <a href="https://github.com/Rayhan-55/Medical_chat_bot-Medi_Mind-" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>MediMind AI</h3>
+        <div class="stack">LangChain · Pinecone · FastAPI · OpenAI</div>
+        <p>RAG-based medical assistant with a Pinecone vector database for grounded, source-cited Q&amp;A, plus CNN-powered skin-lesion detection and real-time image diagnostics.</p>
+        <a class="gh" href="https://github.com/Rayhan-55/Medical_chat_bot-Medi_Mind-" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Virtual Painter -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Virtual Painter</h3>
-          <p>Gesture-controlled digital canvas using MediaPipe hand tracking + OpenCV. Draw, change colors, erase — all with hand movements in real time.</p>
-          <a href="https://github.com/Rayhan-55/YOUR_REPO" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>Local OCR + Hybrid-Search RAG</h3>
+        <div class="stack">FastAPI · Tesseract · bge-m3 · ChromaDB · Ollama</div>
+        <p>Fully local Bangla / English document-QA: scanned PDFs → OCR → multilingual embeddings → grounded answers from a local LLM, with true hybrid metadata-plus-vector retrieval.</p>
+        <a class="gh" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Real-Time Object Detection -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Real-Time Object Detection & Tracking</h3>
-          <p>YOLOv8 + SORT/ByteTrack pipeline for detection, multi-object tracking, counting & masking.</p>
-          <a href="https://github.com/Rayhan-55/YOUR_REPO" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>IoT Sensor Trend Forecasting</h3>
+        <div class="stack">XGBoost · LSTM · TensorFlow · pandas</div>
+        <p>Next-hour CO forecasting from a field-deployed gas sensor (UCI Air Quality). Leakage-safe features; XGBoost (0.66 RMSE) benchmarked against a 48-unit LSTM (0.89 RMSE).</p>
+        <a class="gh" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Resume Screening -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Resume Screening System</h3>
-          <p>NLP-powered resume parser, matcher & ranker with TF-IDF + embeddings + Flask backend.</p>
-          <a href="https://github.com/Rayhan-55/Resume_Screening" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>Real-Time Object Detection &amp; Tracking</h3>
+        <div class="stack">YOLOv8 · SORT / ByteTrack · OpenCV</div>
+        <p>Real-time multi-object detection, tracking, counting, and masking pipeline.</p>
+        <a class="gh" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Recruiter Chatbot -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Recruiter Profile Chatbot</h3>
-          <p>Profile-based conversational AI that adapts responses based on user background and experience.</p>
-          <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_5.py" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>Voice-Enabled RAG Assistant</h3>
+        <div class="stack">Whisper · ChromaDB · LangChain · Groq</div>
+        <p>Speech-to-text with Whisper, vector search over ChromaDB, and Groq LLaMA generation behind a Gradio UI with strict knowledge-base-only answers.</p>
+        <a class="gh" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Web Scraping -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Web Scraping Tool</h3>
-          <p>Automated web scraper that extracts structured data from any website URL.</p>
-          <a href="https://github.com/Rayhan-55/Practise/blob/main/practise_1.ipynb.ipynb" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>Telco Customer Churn Prediction</h3>
+        <div class="stack">scikit-learn · XGBoost · pandas</div>
+        <p>Churn model with feature engineering, ensemble methods, and SMOTE for class imbalance, tuned via cross-validation.</p>
+        <a class="gh" href="https://github.com/Rayhan-55/Telco_Churn_Prediction" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Telco Churn -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Telco Churn Prediction</h3>
-          <p>ML model predicting customer churn with feature engineering and ensemble methods.</p>
-          <a href="https://github.com/Rayhan-55/Telco_Churn_Prediction" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>ServiceHub — Multi-Vendor Marketplace</h3>
+        <div class="stack">FastAPI · React · PostgreSQL · JWT / RBAC</div>
+        <p>Multi-tenant marketplace with three-role access control, a normalised schema, searchable catalogue, sandbox checkout, and Dockerised deployment.</p>
+        <a class="gh" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
-      <!-- Travel Agent -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Travel Agent (n8n)</h3>
-          <p>Intelligent automation workflow for travel planning, bookings, and itinerary management.</p>
-          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- RAG Agent -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>RAG Agent (Pinecone + n8n)</h3>
-          <p>Retrieval-Augmented Generation system with vector database for intelligent document Q&A.</p>
-          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Call Agent -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>Call Agent (n8n)</h3>
-          <p>Automated voice call handling and routing system with intelligent workflow management.</p>
-          <a href="https://github.com/Rayhan-55/N8N" target="_blank" class="project-btn">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
+      <div class="card">
+        <h3>AI Automation Suite (n8n)</h3>
+        <div class="stack">n8n · Pinecone · Voice AI · Workflow Automation</div>
+        <p>Agentic workflows for RAG document Q&amp;A, travel planning, and automated voice-call handling and routing.</p>
+        <a class="gh" href="https://github.com/Rayhan-55/N8N" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
 
     </div>
   </section>
 
-  <!-- FOCUS AREAS -->
-  <section>
-    <h2 class="section-title">Focus Areas</h2>
-    <div class="card-grid">
-      <div class="project-card">
-        <div class="project-content">
-          <h3>AI Research & Experimentation</h3>
-          <p>Fine-tuning vision & language models, exploring agentic systems, prompt engineering, evaluation benchmarks.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-content">
-          <h3>MLOps & Deployment</h3>
-          <p>Containerized APIs (FastAPI/Flask), Docker workflows, model monitoring, performance tuning.</p>
-        </div>
-      </div>
+  <section id="experience">
+    <h2 class="sec"><span class="dot"></span>Experience</h2>
+    <div class="item">
+      <div class="t">Backend AI Engineer (Intern) — FlyRank AI</div>
+      <div class="d">Present</div>
+      <ul class="bul"><li>Ongoing internship contributing to backend development for AI / ML systems.</li></ul>
+    </div>
+    <div class="item">
+      <div class="t">Independent ML Practitioner</div>
+      <div class="d">2024 – Present</div>
+      <ul class="bul">
+        <li>End-to-end ML pipelines for classification, regression, and churn prediction (scikit-learn, XGBoost, ensembles).</li>
+        <li>Deep-learning models in PyTorch / TensorFlow for computer-vision tasks: object detection, skin-disease classification, cancer prediction.</li>
+        <li>NLP for resume parsing and ranking, sentiment analysis, and text classification (TF-IDF, embeddings, transformers).</li>
+        <li>Leakage-safe time-series forecasting pipelines with strictly chronological splits.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section>
-    <h2 class="section-title">Let's Connect</h2>
-    <div class="contact-info">
-      <p>📧 <a href="mailto:lostrayhan55@gmail.com">lostrayhan55@gmail.com</a></p>
-      <p>💻 <a href="https://github.com/Rayhan-55" target="_blank">github.com/Rayhan-55</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank">linkedin.com/in/ray-han-b6bb05253</a></p>
+  <section id="education">
+    <h2 class="sec"><span class="dot"></span>Education</h2>
+    <table class="edu">
+      <tr><th>Institution</th><th>Programme</th><th>Year</th><th>Result</th></tr>
+      <tr><td>Northern University of Business and Technology, Khulna (NUBTK)</td><td>B.Sc. in Computer Science &amp; Engineering</td><td>Expected 2026</td><td>CGPA 3.673 / 4.00</td></tr>
+      <tr><td>Khulna Public College</td><td>Higher Secondary Certificate (HSC)</td><td>2020</td><td>GPA 5.00 / 5.00</td></tr>
+    </table>
+  </section>
+
+  <section id="skills">
+    <h2 class="sec"><span class="dot"></span>Technical Skills</h2>
+    <div class="skillrow"><span class="k">AI &amp; LLMs</span><span>LangChain, LangGraph, RAG, hybrid retrieval, GPT-4o, DeepSeek R1, Groq, Ollama, Claude API, prompt engineering</span></div>
+    <div class="skillrow"><span class="k">ML &amp; DL</span><span>PyTorch, TensorFlow, scikit-learn, XGBoost, LSTM / time-series, Hugging Face Transformers, SMOTE, cross-validation</span></div>
+    <div class="skillrow"><span class="k">NLP &amp; OCR</span><span>bge-m3 embeddings, Tesseract / Surya OCR, Bangla &amp; English extraction, TF-IDF, sentence transformers</span></div>
+    <div class="skillrow"><span class="k">Computer Vision</span><span>OpenCV, YOLOv8, MediaPipe, CNNs, object detection &amp; tracking, SORT / ByteTrack</span></div>
+    <div class="skillrow"><span class="k">Voice &amp; Speech</span><span>Whisper, ElevenLabs, Vapi, Retell AI, voice-agent integration</span></div>
+    <div class="skillrow"><span class="k">Data &amp; Backend</span><span>Pinecone, ChromaDB, FAISS, PostgreSQL, MySQL, FastAPI, Flask, Docker, React, JavaScript</span></div>
+  </section>
+
+  <section id="certifications">
+    <h2 class="sec"><span class="dot"></span>Certifications</h2>
+    <ul class="certs">
+      <li>Introduction to LangGraph — Python · LangChain Academy · 2026</li>
+      <li>Introduction to LangChain — Python · LangChain Academy · 2026</li>
+      <li>Your Pathway to AI / ML Engineering · Ostad · 2026</li>
+      <li>Multi-Agent Job Search System with CrewAI · Educative · 2026</li>
+      <li>SkillQuest — Generative AI Literacy · Simplilearn · 2026</li>
+      <li>2-Star CodeChef Coder · Phitron Batch 6 · 2025</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="sec"><span class="dot"></span>Contact</h2>
+    <p class="lead">I am open to research collaborations, graduate-study opportunities, and AI / ML roles.</p>
+    <div class="links" style="margin-top:1rem;">
+      <a style="background:var(--indigo);border-color:var(--indigo);" href="mailto:asfyrayhan1106@gmail.com"><i class="fas fa-envelope"></i> asfyrayhan1106@gmail.com</a>
+      <a style="background:var(--ink);border-color:var(--ink);" href="https://github.com/Rayhan-55" target="_blank" rel="noopener"><i class="fab fa-github"></i> github.com/Rayhan-55</a>
+      <a style="background:var(--blue);border-color:var(--blue);" href="https://www.linkedin.com/in/ray-han-b6bb05253/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </section>
 
-  <footer>
-    © 2026 Rayhan
-    <small>Building intelligent systems with passion and precision.</small>
-  </footer>
+</main>
 
-  <script>
-    // Scroll reveal animation
-    const sections = document.querySelectorAll('section');
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-
-    // Add active state to first section immediately
-    if (sections.length > 0) {
-      sections[0].classList.add('visible');
-    }
-  </script>
+<footer>
+  &copy; 2026 M. M. Asfy Or Rayhan · Khulna, Bangladesh
+</footer>
 
 </body>
 </html>
